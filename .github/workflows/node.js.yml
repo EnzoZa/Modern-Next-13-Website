@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: metaverse/packagelock.json
     - run: npm ci
     - run: npm run build
     - run: npm export
@@ -34,5 +35,5 @@ jobs:
       uses: 'JamesIves/github-pages-deploy-action@v4'
       with:
         branch : gh-pages  
-        folder: metaverse # The folder the action should deploy.
+        folder: metaverse/app # The folder the action should deploy.
     
