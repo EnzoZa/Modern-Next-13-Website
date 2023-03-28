@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
@@ -29,4 +29,10 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm export
+    
+    - name: 'Deploy'
+      uses: 'JamesIves/github-pages-deploy-action@v4'
+      with:
+        branch : gh-pages  
+        folder: metaverse # The folder the action should deploy.
     
